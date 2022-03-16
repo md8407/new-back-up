@@ -1,0 +1,39 @@
+{% extends 'boot.html' %}
+
+{% block container %}
+
+<table class="table">
+    
+        <thead class="thead-light">
+            <tr>
+                {% comment %} <th scope="col">Id</th> {% endcomment %}
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in employees %}
+            <tr>
+
+                {% comment %} <td><a href="{% url 'viewemployee' users.pk %}">{{user.id}}</a></td> {% endcomment %}
+
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phone_number}}</td>       
+                <td>
+
+                    {% comment %} <a class="btn btn-danger" href="{% url 'delete_user' user.pk %}">Delete</a>
+                    <a class="btn btn-primary" href="{% url 'update_user' user.pk %}">Update</a> {% endcomment %}
+                   
+                </td>
+
+
+            </tr>
+            {% endfor %}
+        </tbody>
+</table>
+
+
+{% endblock %}

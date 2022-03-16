@@ -1,0 +1,68 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+
+<div class="col-md-4 col-md-offset-4" id="login">
+						<section id="inner-wrapper" class="login">
+							<article>
+								<form method ="post">
+                                    {% csrf_token%} 
+									{% comment %} {{ form.as_p}} {% endcomment %}
+                                  
+								   <div class="form-group">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="fa fa-user"> </i></span>
+                                             {{ form.username|as_crispy_field }}
+
+											
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="fa fa-envelope"> </i></span>
+                                            {{ form.email | as_crispy_field}}
+											
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="fa fa-key"> </i></span>
+                                            {{ form.phone_number | as_crispy_field}}
+
+											
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="fa fa-key"> </i></span>
+                                            {{ form.password | as_crispy_field}}
+                                            
+											
+										</div>
+									</div>
+                                 
+								
+									  <button type="submit" class="btn btn-success btn-block">Submit</button>
+								</form>
+							</article>
+                        </section>
+</div>
+
+
+</body>
+</html>
